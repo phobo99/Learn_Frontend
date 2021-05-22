@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form trong HTML</title>
+</head>
+
+<body>
+    <h3>Thuộc tính method quy định cách thức dữ liệu được gửi lên server. Có 2 cách thức thường được sử dụng đó là POST
+        và GET.</h3>
+    <h2>Đặt tên cho các trường:</h2>
+    Lưu ý rất quan trọng: Cần phải đặt tên cho các trường của biểu mẫu. Nếu một trường nào đó không được đặt tên thì dữ
+    liệu của trường đó sẽ bị bỏ qua (không được gửi lên server).
+    Chẳng hạn, trong ví dụ sau thì chỉ có dữ liệu của trường "Last name" được gửi đi:
+    <form action="/action_page.php">
+        First name:<br>
+        <input type="text" value="Mickey"><br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <hr>
+    Chúng ta có thể sử dụng thẻ &lt;fieldset&gt; và thẻ &lt;legend&gt; để nhóm các dữ liệu của biểu mẫu lại với nhau.
+    <form action="login" name="form-name">
+        <fieldset>
+            <!-- tạo đường kẻ ngoài-->
+            <legend>Personalia:</legend> <!-- Tiêu đề cho form đó-->
+            <label for="uname">name:</label>
+            <input type="text" id="uname" name="uname"><br><br>
+            <label for="email">email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="text" id="dob" name="dob"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    <br>
+    <hr>
+    Form đăng nhập: với type nhập vào là "password"
+    <form>
+        Username: <br>
+        <input type="text" name="username"><br>
+        Password: <br>
+        <input type="password" name="psw"><br>
+    </form>
+    <br>
+    <hr>
+    Kiểu type là submit: gửi toàn bộ form vừa nhập lên server
+    <form action="/action_page.php">
+        First name: <br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name: <br>
+        <input type="text" name="lastname" value="Mouse"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <hr>
+    Kiểu type là reset: khi bấm reset tất cả các trường sẽ quay về mặc định trước đó
+    <form action="/action_page.php">
+        First name: <br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name: <br>
+        <input type="text" name="lastname" value="Mouse"><br>
+        <input type="submit" value="Submit">
+        <input type="reset">
+    </form>
+    <br>
+    <hr>
+    Kiểu type là Radio: cho phép chọn 1 trong số các giá trị cho trước
+    <form>
+        <input type="radio" name="gender" value="male" checked>Male<br>
+        <input type="radio" name="gender" value="female">Female<br>
+        <input type="radio" name="gender" value="other">Other<br>
+    </form>
+    <br>
+    <hr>
+    Kiểu type là checkbox: cho phép chọn 1 hay nhiều giá trị cho trước
+    <form>
+        <input type="checkbox" name="vehicle1" value="bike">i have a bike<br>
+        <input type="checkbox" name="vehicle2" value="car">i have a car<br>
+        <input type="checkbox" name="vehicle3" value="other">Other vehicle<br>
+    </form>
+    <br>
+    <hr>
+    Kiểu type là Button: được sử dụng để tạo một nút, nút này có thể được gắn với sự kiện của javascript để xử lí thao
+    tác của người dùng
+    <br>
+    <input type="button" onclick="alert('Hello World!')" value="Click me !">
+    <br>
+    <hr>
+    Kiểu Input Hidden: Dùng để chứa giá trị của form nhưng không hiển thị trên giao diện người dùng. Dữ liệu này cũng
+    được đẩy lên server như bình thường.
+    <form method="POST">
+        <input name="secret" value="abcg124faasfjh149dfd" type="hidden" />
+        Tại đây có 1 thẻ input. chẳng qua là bạn không thấy nó do dùng hidden thôi. <br>
+        Account: <input name="account" value="admin" type="text" /><br />
+        Sở thích:<br />
+        <label><input name="hobby" value="travel" type="radio" checked /> Du lịch</label> <br />
+        <label><input name="hobby" value="sport" type="radio" /> Thể thao</label> <br />
+        <label><input name="hobby" value="cooking" type="radio" /> Nấu ăn</label> <br />
+        <input type="submit" value="Send data" />
+    </form>
+    <br>
+    <hr>
+    Kiểu Thẻ textarea: Thẻ textarea được sử dụng để hiển thị trường nhập chuỗi dài (nhiều dòng).
+    <form method="POST">
+        <textarea cols="50"
+            rows="4">This is a very very long text text text text text text text text text text text text </textarea>
+    </form>
+</body>
+
+</html>

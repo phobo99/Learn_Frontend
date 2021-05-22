@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Table trong HTML</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>Cấu trúc bảng được sử dụng để hiển thị các thông tin dưới dạng dòng và cột.
+
+        Để tạo bảng, chúng ta sử dụng các thẻ sau:
+        
+        &lt;table&gt;: Định nghĩa một bảng
+        &lt;tr&gt;: Định nghĩa một dòng
+        &lt;th&gt;: Định nghĩa một ô tiêu đề
+        &lt;td&gt;: Định nghĩa một ô dữ liệu.</pre>
+    Ta sẽ thêm các thuộc tính css vào đây để trông đẹp hơn nhé:
+    <h3>Ví dụ: </h3>
+    <table border="1">
+        <!-- border="1" này dùng để tạo ra đường viền thôi-->
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <h3>Bảng nâng cao:</h3>
+    <h5>Ô chiếm nhiều cột: sử dụng thuộc tính colspan</h5>
+    <table>
+        <tr>
+            <th>Tháng</th>
+            <th>Doanh thu</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>550$</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>450$</td>
+        </tr>
+        <tr>
+            <td colspan="2">Tổng: 1000$</td>
+            <!-- colspan="2" nghĩa là nó sẽ gộp ô thứ nhất và ô thứ 2-->
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <table>
+        <tr>
+            <th>Quý</th>
+            <th>Tháng</th>
+            <th>Doanh thu</th>
+        </tr>
+        <tr>
+            <td rowspan="3">Một</td>
+            <td>1</td>
+            <td>550$</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>450$</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>650$</td>
+        </tr>
+        <tr>
+            <td rowspan="3">Hai</td>
+            <!--rowspan="3" nghĩa là hộp 3 hàng thành 1 hàng-->
+            <td>4</td>
+            <td>550$</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>450$</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>650$</td>
+        </tr>
+    </table>
+    <h2>Lưu ý: </h2><br>
+    Trong thực thế người ta sử dụng CSS để định dạng bảng. chứ k dùng như border trên...
+</body>
+
+</html>

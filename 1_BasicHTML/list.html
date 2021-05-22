@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo các thẻ danh sách ol ul li</title>
+    <style>
+        .dsnn ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        .dsnn li {
+            float: left;
+        }
+
+        .dsnn li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .dsnn li a:hover {
+            background-color: #111111;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sử dụng các thẻ tạo danh sách: ul, ol, li</h1>
+    <h2>Danh sách không xếp thứ tự:</h2>
+    <pre>Ta định nghĩa danh sách không xếp thứ tự bằng thẻ &lt;ul&gt;, viết tắt của unordered list. Mỗi phần tử của danh
+    sách được định nghĩa bằng thẻ &lt;li&gt; , viết tắt của list item.
+    Mặc định, các phần tử của danh sách sẽ được hiển thị kèm theo một dấu tròn phía trước: </pre>
+    <br>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <br>
+    <h3>Các biểu tượng cho phần tử trong danh sách không xếp thứ tự:</h3>
+    <p>Ta dùng thuộc tính CSS list-style-type để định kiểu cho biểu tượng của phần tử trong danh sách:</p>
+    <p>Ví dụ dùng giá trị disc:</p>
+    <ul style="list-style-type:disc">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>Ví dụ dùng giá trị circle</p>
+    <ul style="list-style-type:circle">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>Ví dụ dùng giá trị none</p>
+    <ul style="list-style-type:none">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <br>
+    <hr>
+    <h2>Danh sách xếp theo thứ tự:</h2>
+    <pre>Ta định nghĩa một danh sách xếp theo thứ tự bằng thẻ &lt;ol&gt; (ordered list). Mỗi phần tử của danh sách được định nghĩa bằng thẻ &lt;li&gt; (list item).
+    Mặc định thì các phần tử sẽ được hiển thị kèm số thứ tự: </pre>
+    <br>
+    <ol>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <h3>Thuộc tính type của danh sách xếp thứ tự:</h3>
+    <p>Thuộc tính type của thẻ ol dùng để định kiểu cho biểu tượng các phần tử:</p>
+    <p>Đánh thứ tự bằng số: type="1"</p>
+    <ol type="1">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <p>Đánh thứ tự bằng chữ cái hoa: type="A"</p>
+    <ol type="A">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <p>Đánh thứ tự bằng chữ cái thường: type="a"</p>
+    <ol type="a">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <p>Đánh thứ tự bằng chữ số La Mã hoa: type="I"</p>
+    <ol type="I">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <p>Đánh thứ tự bằng chữ số La Mã thường: type="i"</p>
+    <ol type="i">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <br>
+    <hr>
+    <h2>Danh sách miêu tả:</h2>
+    <pre>Mã HTML cũng có thẻ danh sách miêu tả.
+        Một danh sách miêu tả là danh sách các thuật ngữ cùng với miêu tả của chúng. 
+        Thẻ &lt;dl&gt; định nghĩa một danh sách miêu tả, trong đó, thẻ &lt;dt&gt; định nghĩa thuật ngữ (tên gọi),
+        và thẻ  &lt;dd&gt; miêu tả các thuật ngữ:</pre>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+    <br>
+    <hr>
+    <h2>Danh sách bên trong danh sách:</h2>
+    <pre>Ta có thể lồng danh sách vào một danh sách khác, tạo thành danh sách bên trong danh sách, tiếng Anh gọi là nested list:</pre>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea</li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+    <p>Chú ý: Mỗi phần tử không chỉ có thể chứa danh sách khác mà còn có thể chứa các thành phần HTML khác như ảnh hay
+        liên kết,...</p>
+    <br>
+    <hr>
+    <h2>Danh sách nằm ngang:</h2>
+    <pre>Danh sách trong HTML có thể được định kiểu theo nhiều cách bằng CSS.
+    Một cách làm phổ biến là định kiểu chuyển danh sách thành nằm ngang để tạo thành một menu:</pre>
+    <div class="dsnn">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+    <br>
+    <hr>
+    <h1>Tóm tắt nội dung:</h1>
+    <ul>
+        <li>Dùng thẻ &lt;ul&gt; để định nghĩa một danh sách không xếp thứ tự</li>
+        <br>
+        <li>Dùng thuộc tính CSS list-style-type để định nghĩa biểu tượng cho các phần tử trong danh sách</li>
+        <br>
+        <li>Dùng thẻ &lt;ol&gt; để định nghĩa một danh sách xếp thứ tự</li>
+        <br>
+        <li>Dùng thuộc tính type để định nghĩa kiểu đánh thứ tự</li>
+        <br>
+        <li>Dùng thẻ &lt;li&gt; để định nghĩa một phần tử trong danh sách</li>
+        <br>
+        <li>Dùng thẻ &lt;dl&gt; để định nghĩa một danh sách miêu tả</li>
+        <br>
+        <li>Dùng thẻ &lt;dt&gt; để định nghĩa một thuật ngữ</li>
+        <br>
+        <li>Dùng thẻ &lt;dd&gt; để miêu tả thuật ngữ ngay phía trên nó trong danh sách miêu tả</li>
+        <br>
+        <li>Có thể lồng các danh sách bên trong các danh sách</li>
+        <br>
+        <li>Các phần tử trong danh sách có thể chứa các thành phần HTML khác</li>
+        <br>
+        <li>Dùng thuộc tính CSS float:left hoặc display:inline để hiển thị danh sách nằm ngang</li>
+    </ul>
+</body>
+
+</html>

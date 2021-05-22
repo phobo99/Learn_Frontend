@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Link trong HTML</title>
+    <style>
+        a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sau đây chúng ta tìm hiểu tới thẻ link -->
+    <!-- Ta có thể thấy liên kết (link) ở hầu hết các trang web. Người dùng nhấp chuột vào các liên kết để di chuyển giữa các trang web -->
+
+    <a href="http://bob.codegym.vn/lessons/">Codegym's lessons</a>
+    <hr>
+    <!-- Liên kết cục bộ:
+
+    Ví dụ trên dùng một địa chỉ URL tuyệt đối (địa chỉ đầy đủ của trang web).
+    Ta có thể dùng một liên kết cục bộ khi trỏ đến địa chỉ trên trang web của chính mình. 
+    Liên kết cục bộ có thuộc tính href là một địa chỉ URL tương đối (không có http://www...).
+    ví dụ: -->
+
+    <a href="course">Các khóa học</a>
+
+    <hr>
+
+    <!-- Màu sắc của liên kết:
+
+    Mặc định, liên kết sẽ có màu như sau (trên tất cả trình duyệt):
+        Liên kết chưa bị click vào sẽ có màu xanh và được gạch chân.
+        Liên kết đã bị click sẽ có màu tím và được gạch chân.
+        Liên kết đang bị click lên sẽ có màu đỏ và được gạch chân.
+    Ta có thể thay đổi màu mặc định bằng cách dùng các thuộc tính CSS sau: -->
+    <p>You can change the default colors of links</p>
+    <a href="html_images.php" target="_blank">HTML Images</a>
+
+    <!-- chúng ta chưa cần tìm hiểu kĩ các thẻ css. chúng ta chỉ tìm hiểu về màu mà thôi -->
+    <hr>
+
+    <!-- Thuộc tính target của một liên kết: 
+
+    Thuộc tính target cho trình duyệt biết cách mở ra trang web trong thẻ href.
+    Thuộc tính target có thể là một trong các giá trị sau:
+        _blank - Mở liên kết trong một cửa sổ hoặc một tab mới của trình duyệt 
+        _self - Mở liên kết trong tab/cửa sổ hiện tại của trình duyệt (Không cần khai báo cũng được vì đây là mặc định của thẻ <a>) 
+        _parent - Mở liên kết trong parent frame 
+        _top - Mở liên kết trong cửa sổ chính 
+        Tip: Ta có thể dùng target="_top" để mở liên kết trong tab mới khi đường dẫn đặt trong một frame (xem lại ví dụ
+    Codegym's lessons đầu tiên phía trên)
+        framename - Mở liên kết trong một frame có tên là framename (Tìm hiểu thêm về thẻ <frame>) -->
+
+    <a href="http://codegym.vn/" target="_blank">Trang chủ Codegym</a>
+
+    <a href="http://codegym.vn/" target="_self">Trang chủ Codegym</a>
+
+    <a href="http://bob.codegym.vn/lessons/" target="_top">Codegym's lessons: target="_top"</a>
+
+    <hr>
+    <!-- Dùng ảnh làm liên kết: -->
+    <a href="http://bob.codegym.vn/home" target="_blank">
+        <img src="http://bob.codegym.vn/assets/images/Codegym-bob-xh100.png" style="border:0;">
+    </a>
+    <hr>
+    <!-- Dùng liên kết để tạo một đánh dấu trang(bookmark):
+
+    Bookmark được dùng để người đọc nhảy đến phần khác trên cùng một trang web.
+    Bookmarks rất hữu ích khi trang web quá dài.
+    Để tạo một bookmark, ta thêm liên kết vào danh sách đánh dấu trang.
+    Khi liên kết được click, trang web sẽ cuộn xuống phần đã được đánh dấu.  -->
+    <p><a href="#C4">Jump to Chapter 4</a></p>
+    <p><a href="#C6">Jump to Chapter 6</a></p>
+    <p><a href="http://bob.codegym.vn/clean-code#C6" target="_blank">Go to Chapter 6</a></p>
+
+    <h2>Chapter 1</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2>Chapter 2</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2>Chapter 3</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2 id="C4">Chapter 4</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2>Chapter 5</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2 id="C6">Chapter 6</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2>Chapter 7</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <h2>Chapter 8</h2>
+    <p>This chapter explains ba bla bla</p>
+
+    <hr>
+
+    <!-- Đường dẫn bên ngoài :
+    Có thể liên kết đến các trang bên ngoài bằng một địa chỉ URL đầy đủ hoặc đường dẫn tương đối so với trang web hiện tại. 
+    Ví dụ dưới dùng một đường dẫn URL đầy đủ để liên kết đến trang web:
+    -->
+    <a href="http://agilearn.vn/user/profile.php?id=3"> URL đầy đủ </a><br>
+    <!-- Ví dụ dưới liên kết đến trang web trong thư mục user của website hiện tại: -->
+    <a href="/user/profile.php?id=3">
+        URL tương đối cho trang bên trong thư mục user
+    </a><br>
+    <!-- Ví dụ dưới liên kết đến trang web trong cùng thư mục với trang web hiện tại: -->
+    <a href="/profile.php?id=3">
+        URL tương đối cho trang cùng thư mục với trang hiện tại
+    </a>
+    <hr>
+    <h1>Tóm tắt nội dung: </h1>
+    <ul>
+        <li>Dùng thẻ a để định nghĩa một liên kết</li>
+        <br>
+        <li>Dùng thuộc tính href để định nghĩa địa chỉ của liên kết</li>
+        <br>
+        <li>Dùng thuộc tính target để định nghĩa cách trình duyệt mở liên kết</li>
+        <br>
+        <li>Dùng thẻ img bên trong thẻ a để tạo liên kết bằng ảnh</li>
+        <br>
+        <li>Dùng thuộc tính id (id="bookmark_1") để tạo bookmark cho trang web</li>
+        <br>
+        <li>Dùng thuộc tính href  (href="#bookmark_1") để liên kết đến bookmark có id =  bookmark_1</li>
+    </ul>
+</body>
+
+</html>

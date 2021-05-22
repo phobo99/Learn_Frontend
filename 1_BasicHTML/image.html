@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ảnh trong HTML</title>
+</head>
+
+<body>
+    <!-- Tất cả thẻ rỗng nên có dấu / sau cuối dù có hay không vẫn chạy được -->
+    <!-- Có 3 định dạng ảnh thường dùng trên các trang web: JPG, PNG, GIF. Ví dụ: -->
+    <h2>Meet Mr. Bob</h2>
+    <img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Mr. Bob" style="height:100px" />
+    <hr>
+    <!-- Trong mã HTML, hình ảnh được định nghĩa bằng thẻ <img>.
+    Thẻ <img> là thẻ rỗng, chỉ gồm các thuộc tính và không có thẻ đóng.
+    Thuộc tính src để chỉ ra URL (địa chỉ web) của hình ảnh:
+        <img src="url" alt="some_text" style="width:width;height:height;">
+    Thuộc tính alt : 
+        Thuộc tính alt tạo ra một dòng chữ thay thế cho hình ảnh trong trường hợp ảnh
+        không hiển thị được (do mạng chậm, đường dẫn của thuộc tính src bị sai,
+        hoặc khi người duyệt web dùng một phần mềm đọc màn hình - screen reader).
+        Nếu trình duyệt không tìm thấy hình ảnh, nó sẽ hiển thị giá trị của thuộc tính alt:
+    -->
+    <p>Nếu trình duyệt không tìm thấy hình ảnh,
+        nó sẽ hiển thị giá trị của thuộc tính alt:</p>
+
+    <img src="https://i.pinimg.com/originals/e5/f4/09/e5f409cad3a093cb317ea8ca03292818.gif" alt="Perfect gift not found"
+        style="width:128px;height:128px;" />
+    <br>
+    <img src="https://i.pinimg.com/originals/e5/f4/09/e5f409cad3a093cb317ea8ca03292818.giff"
+        alt="Perfect gift not found" style="width:128px;height:128px;" />
+    <!-- Ta luôn luôn phải khai báo thuộc tính alt. Một trang web không được coi là hợp lệ nếu không có đủ các thuộc tính alt của thẻ <img>. -->
+    <hr>
+
+    <!-- Cỡ ảnh - Chiều rộng và chiều cao:
+    Ta dùng thuộc tính style để chỉ định chiều rộng và chiều cao của ảnh.
+    Giá trị tính theo pixel (thêm px sau số chỉ chiều rộng/cao): -->
+    <h2>Cỡ ảnh</h2>
+    <img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Mr. Bob icon"
+        style="width:208px;height:128px;" />
+    <br>
+    <!--  Ngoài ra, ta có thể dùng thuộc tính  width và height. Với hai thuộc tính này, giá trị mặc định là tính theo pixel: -->
+    <img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Mr. Bob icon" width="128"
+        height="128" />
+    <p>Chú ý: Luôn định rõ chiều cao và chiều rộng của hình ảnh. Nếu không trang web sẽ bị rung rinh khi hiển thị hình
+        ảnh.</p>
+    <hr>
+
+    <h2>Nên dùng thuộc tính width và height, hay style?</h2>
+    Cả 3 thuộc tính width, height, and style đều hợp lệ trong HTML5.
+    Tuy nhiên, ta nên dùng thuộc tính style để tránh việc kích thước ảnh bị các thuộc tính css khác điều khiển:
+    <h2>Đường dẫn ảnh:</h2>
+    <p>Trong dự án, ảnh thường được lưu vào một thư mục riêng. ta thường dùng đường dẫn tương đối cho thuộc tính src.
+
+        Trong đường dẫn ảnh phải ghi đầy đủ tên thư mục vào đường dẫn ảnh:</p>
+
+    <br />Ví dụ: <br />
+    &lt;img&nbsp;src="/images/html5.gif"&nbsp;alt="HTML5 Icon"&nbsp;style="width:128px;height:128px;"&gt;
+
+    <hr>
+    <h2>Ảnh động:</h2>
+    <p>Ta có thể hiển thị ảnh động (định dạng GIF) như ảnh thông thường, không cần thay đổi cú pháp.</p>
+    <br>
+    <img src="https://pixelsbyumair.files.wordpress.com/2014/12/cssgif.gif" alt="Computer Man"
+        style="width:250px;height:200px;">
+    <hr>
+
+    <h2>Dùng ảnh làm liên kết:</h2>
+    <p>Để dùng ảnh làm liên kết, chỉ cần đặt thẻ &lt;img&gt; vào trong thẻ &lt;a&gt;:</p> <br>
+    <a href="http://bob.codegym.vn/home" target="_blank">
+        <img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Bob.Codegym.vn"
+            style="width:142px;height:142px;border:0;">
+    </a>
+    <hr>
+
+    <h2>Đặt vị trí cho ảnh:</h2>
+    <p>Dùng thuộc tính CSS float để đặt ảnh bên trái hoặc bên phải văn bản:</p>
+    <p><img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Smiley face"
+            style="float:right;width:42px;height:42px;">
+        The image will float to the right of the text.</p>
+    <br />
+    <p><img src="http://bob.codegym.vn/assets/images/Codegym-bob-RIGHTxWH200.png" alt="Smiley face"
+            style="float:left;width:42px;height:42px;">
+        The image will float to the left of the text.</p>
+    <br>
+    <hr>
+
+    <h2>Bản đồ ảnh</h2>
+    <p>Ta có thể dùng thẻ &lt;map&gt; để định nghĩa một bản-đồ-ảnh(image-map). Một bản đồ ảnh là một hình ảnh có các
+        vùng có thể nhấp chuột vào.
+
+        Thuộc tính usemap của thẻ &lt;img&gt; tương ứng với thuộc tính name của thẻ &lt;map&gt; .
+
+        Thẻ &lt;map&gt; có các thẻ &lt;area&gt; để định nghĩa các vùng có thể nhấp chuột trong bản-đồ-ảnh:</p>
+    <div style="background-color:#272780;">
+
+        <img src="http://bob.codegym.vn/assets/images/Codegym-bob-xh100.png" alt="Codegym map" usemap="#codegymmap"
+            style="width:360px;height:126px;">
+
+        <map name="codegymmap">
+            <area shape="rect" coords="0,0,262,126" alt="Codegym" href="http://codegym.vn" target="_blank">
+            <area shape="circle" coords="300,58,38" alt="Codegy Bob" href="http://bob.codegym.vn" target="_blank">
+        </map>
+
+    </div>
+    <hr>
+    <h1>Tóm tắt nội dung:</h1>
+    <ul>
+        <li>Dùng thẻ img để định nghĩa một hình ảnh</li>
+        <br>
+        <li>Dùng thuộc tính src để định nghĩa URL của hình ảnh</li>
+        <br>
+        <li>Dùng thuộc tính alt để định nghĩa dòng chữ thay thế cho ảnh khi ảnh không hiển thị được</li>
+        <br>
+        <li>Dùng thuộc tính width và height để định nghĩa kích thước của ảnh</li>
+        <br>
+        <li>Dùng thuộc tính CSS width and height để chắc chắn định nghĩa kích thước ảnh (không bị các thuộc tính CSS khác ghi đè)</li>
+        <br>
+        <li>Dùng thuộc tính CSS float để xếp vị trí ảnh</li>
+        <br>
+        <li>Dùng thẻ map để định nghĩa một bản-đồ-ảnh(image-map)</li>
+        <br>
+        <li>Dùng thẻ area để định nghĩa các vùng có thể click bản-đồ-ảnh</li>
+        <br>
+        <li>Dùng thuộc tính usemap của thẻ img để trỏ ảnh đến thẻ map tương ứng</li>
+    </ul>
+</body>
+
+</html>

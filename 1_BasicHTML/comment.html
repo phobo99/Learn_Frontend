@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment trong HTML</title>
+</head>
+
+<body>
+    <h4>Chú thích:</h4>
+    <p>thật ra là trong bài đầu tiên mình đã sử dụng comment rất là nhiều rồi. nhưng bài này mình sẽ đi nói thêm về một
+        số thứ</p>
+    <pre>&lt;!-- Đây là một chú thích -- &gt;</pre>
+    <h4>Chú thích dựa theo điều kiện:</h4>
+    <p>Chú thích dựa theo điều kiện chỉ làm việc trên trình duyệt Internet Explorer (IE),
+        còn đối với các trình duyệt khác thì chúng sẽ bị bỏ qua.<br />
+        Chú thích dựa theo điều kiện được hỗ trợ từ phiên bản IE5 trở đi. <br />
+        Bạn có thể sử dụng chúng để đưa ra các hướng dẫn điều kiện cho các phiên bản khác nhau của IE. <br />
+        Nếu bạn xem ví dụ này bằng trình duyệt IE8 thì trên màn hình sẽ hiển thị dòng chữ "BẠN ĐANG SỬ DỤNG TRÌNH DUYỆT
+        Internet Explorer 8". <br />
+        Còn nếu xem bằng các trình duyệt khác thì sẽ không thấy dòng chữ đó.</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;body&gt;
+            &lt;!--[if IE 8]&gt;
+               &lt;p&gt;BẠN ĐANG SỬ DỤNG TRÌNH DUYỆT Internet Explorer 8&lt;/p&gt;
+            &lt;![endif]--&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;</code></pre>
+    <p>Nếu bạn xem ví dụ này bằng trình duyệt IE phiên bản cũ hơn 9 thì trên màn hình sẽ hiển thị dòng chữ "BẠN ĐANG SỬ
+        DỤNG TRÌNH DUYỆT Internet Explorer phiên bản cũ hơn 9". Còn nếu xem bằng các trình duyệt khác thì sẽ không thấy
+        dòng chữ đó.</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;body&gt;
+            &lt;!--[if lt IE 9]&gt;
+               &lt;p&gt;BẠN ĐANG SỬ DỤNG TRÌNH DUYỆT Internet Explorer phiên bản cũ hơn 9&lt;/p&gt;
+            &lt;![endif]--&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;</code></pre>
+    <p>Trình duyệt IE rất hạn chế trong việc hỗ trợ định dạng trang web (bạn thử xem trang webcoban.vn bằng trình duyệt
+        Chrome và IE sẽ dễ dàng nhận thấy sự yếu kém của IE). Dó đó, chúng ta cần phải sử dụng chú thích điều kiện để
+        nhúng các tập tin định dạng dành cho trình duyệt IE. Nếu người dùng đang xem trang web bằng trình duyệt IE thì
+        những tập tin định dạng này sẽ được thực thi giúp trang web hiển thị trên IE được tốt hơn.</p>
+</body>
+
+</html>
