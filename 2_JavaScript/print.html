@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị đầu ra</title>
+</head>
+
+<body>
+    <h2>hiển thị kết quả dùng alert()</h2>
+    <button type="button" onclick="showMessage();">Click Me!</button>
+    <h2>hiển thị kết quả dùng thẻ HTML</h2>
+    <div id="messageDiv"></div>
+    <button type="button" onclick="showMessage2();">Click Me!</button>
+    <h2>hiển thị kết quả dùng hàm document.write()</h2>
+    <button type="button" onclick="showMessage3();">Click Me!</button>
+    <h2>hiển thị kết quả dùng console.log(), bật inspect để xem</h2>
+    <button type="button" onclick="showMessage4();">Click Me!</button>
+    <script>
+        function showMessage() {
+            alert('Xin chào!');
+        }
+        function showMessage2() {
+            document.getElementById('messageDiv').innerHTML = 'Xin chào!';
+        }
+        function showMessage3() {
+            document.write('Xin chào!');
+        }
+        function showMessage4() {
+            console.log('Xin chào!');
+        }
+
+    </script>
+</body>
+
+</html>
