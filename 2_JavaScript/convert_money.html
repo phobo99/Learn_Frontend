@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ đơn giản</title>
+</head>
+
+<body>
+    <form>
+        Amount: <input type="number" name="amount" id="amount" /> <br />
+    </form>
+    <br>
+    From Currency:<select name="formcurr" id="formcurr">
+        <option value="vietnam">Viet Nam</option>
+    </select>
+    </br>
+    <br>
+
+    To Currency:<select name="tocurr" id="tocurr">
+        <option value="usd">USD</option>
+        <option value="euro">Euro</option>
+        <option value="yen">Yen</option>
+    </select>
+    </br>
+    <br>
+
+    <button type="button" onclick="changeMoney();">Convert</button>
+</body>
+
+</html>
+<script>
+    function changeMoney() {
+        let a = document.getElementById("amount").value;
+
+        let f = document.getElementById("formcurr").value;
+
+        let t = document.getElementById("tocurr").value;
+
+        let money;
+
+        if (f === "vietnam") {
+            if (t === "usd") money = a / 23000;
+            else if (t === "euro") money = a / 27000;
+            else if (t === "yen") money = a / 215;
+        }
+        alert(money);
+    }
+</script>
