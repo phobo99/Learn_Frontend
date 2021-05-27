@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập biến, kiểu dữ liệu, toán tử</title>
+</head>
+
+<body>
+    <!--
+Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học, và Sinh học. Sau đó hiển thị điểm trung bình và tổng của những điểm này.
+Bài 2:  Viết chương trình nhập một giá trị là độ 0C (Celsius) và chuyển nó sang độ 0F (Fahrenheit). [Hướng dẫn: C/5 = (F-32)/9]
+Bài 3: Viết chương trình tính diện tích hình tròn
+Bài 4: Viết chương trình chu vi hình tròn
+    -->
+    <!-- execise1 -->
+    <script>
+        document.write("Bài tập tính điểm trung bình");
+        let vatLy = prompt("Nhập vào điểm môn lý");
+        let hoaHoc = prompt("Nhập vào điểm môn hoá");
+        let sinhHoc = prompt("Nhập vào điểm môn sinh");
+
+        let avg = (vatLy + hoaHoc + sinhHoc) / 3;
+        document.write("Điểm trung bình 3 môn là : " + avg)
+        document.write("<br/>");
+
+        document.write("Bài tập chuyển đổi độ C sang F");
+        let c = prompt("Nhập vào độ C to F");
+        let f = prompt("Nhập vào độ F to C");
+
+        function cToF(celsius) {
+            let cTemp = celsius;
+            let cToFahr = cTemp * 9 / 5 + 32;
+            let message = cTemp + '\xB0C is ' + cToFahr + ' \xB0F.';
+            document.write(message);
+            document.write("<br/>");
+
+        }
+
+        function fToC(fahrenheit) {
+            let fTemp = fahrenheit;
+            let fToCel = (fTemp - 32) * 5 / 9;
+            let message = fTemp + '\xB0F is ' + fToCel + '\xB0C.';
+            document.write(message);
+            document.write("<br/>");
+
+        }
+
+        cToF(c);
+        fToC(f);
+
+        let banKinh = prompt("Nhập vào bán kính của hình tròn");
+        function getAreaCircle(radious) {
+            let area = (banKinh * banKinh) * Math.PI;
+            document.write("Diện tích của hình tròn là: " + area);
+            document.write("<br/>");
+        }
+        function getPerimeterCircle(radious) {
+            let perimeter = 2 * radious * Math.PI;
+            document.write("Chu vi của hình tròn là: " + perimeter);
+            document.write("<br/>");
+        }
+        getAreaCircle(banKinh);
+        getPerimeterCircle(banKinh);
+
+    </script>
+</body>
+
+</html>
