@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinh bảng cửu chương</title>
+    <style type="text/css">
+        table {
+            border: 2px solid black;
+            width: 300px;
+            text-align: center;
+        }
+
+        td {
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        var sout;
+        sout = "<table >"
+        for (i = 1; i <= 10; i++) {
+            sout = sout + "<tr>";
+            for (j = 1; j <= 10; j++) {
+                sout = sout + "<td>" + j + "x" + i + "=" + (j * i) + "</td>";
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>";
+        document.write(sout);
+        sout.style.marginLeft = 100 + "px";
+    </script>
+</body>
+
+</html>
