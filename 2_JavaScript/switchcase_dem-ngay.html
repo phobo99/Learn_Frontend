@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch-case đếm ngày trong tháng</title>
+</head>
+
+<body>
+    <form name="formThang">
+        Nhập vào tháng muốn kiểm tra: <input type="text" name="textThang">
+        <button type="button" onclick="ShowNgay();" style="margin-left:15px">OK</button>
+    </form>
+    <h3 id="idShowNgay"></h3>
+</body>
+
+</html>
+<script>
+    function ShowNgay() {
+        var numberThang = parseInt(document.formThang.textThang.value);
+        var numberNgay = document.getElementById("idShowNgay");
+        switch (numberThang) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                numberNgay.innerText = "Tháng " + numberThang + " có 31 ngày";
+                break;
+            case 2:
+                numberNgay.innerText = "Tháng " + numberThang + " có 28 hoặc 29 ngày";
+                break;
+            case 4: case 6: case 9: case 11:
+                numberNgay.innerText = "Tháng " + numberThang + " có 30 ngày";
+                break;
+            default:
+                numberNgay.innerText = "Tháng bạn nhập không chính xác";
+        }
+    }
+</script>
