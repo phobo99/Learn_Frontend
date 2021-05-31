@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me</title>
+</head>
+
+<body>
+    <form>
+        <p>Do you love me ?</p>
+        <input type="button" value="Yes!" onclick="evt_Yes()">
+        <input id="Random" type="button" value="NO!" onmouseover="evt_No()"; style="position: absolute">
+    </form>
+</body>
+
+</html>
+<script>
+    function evt_Yes() {
+        alert("Yes. are you right!");
+    }
+    function evt_No() {
+        var x = Math.random() * window.innerWidth;
+        var y = Math.random() * window.innerHeight;
+
+        document.getElementById('Random').style.left = x + "px";
+        document.getElementById('Random').style.top = y + "px";
+    }
+</script>
