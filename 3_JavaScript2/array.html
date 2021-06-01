@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mảng</title>
+</head>
+
+<body>
+    <script>
+        // khai báo mảng trong js
+        let arr = ["Toyota", "Subaru", "BMW"];
+
+
+        // truy xuất một phần tử của mảng
+        let toy = cars[0];
+
+        cars[3] = "Huyndai";
+
+        //độ dài của mảng
+        let countOfCars = cars.length;
+
+        //thêm phần tử vào mảng
+        cars.push("Kia");
+        console.log(cars[cars.length - 1]); // "Kia"
+
+        //thêm phần tử vào đầu mảng
+        cars.unshift("Ferari");
+        console.log(cars[0]); // "Ferari
+
+        //xoá phàn tử mảng
+        let last = cars.pop(); //"Kia"
+        cars.length // 5
+
+        //Sắp xếp mảng
+        let arr = ["Toyota", "Subaru", "BMW"]
+        arr.sort() // [ "BMW", "Subaru", "Toyota" ]
+        //đảo ngược mảng 
+        arr.reverse() // [ "Toyota", "Subaru", "BMW" ]
+
+
+        /*Theo mặc định, phương thức sort() sẽ so sánh các phần tử theo trật tự của các ký tự trong bảng chữ cái.
+            Chẳng hạn, phần tử "Apple" sẽ được đưa lên trước phần tử "Banana".
+            Tuy nhiên, điều này sẽ gây sai sót khi so sánh các chữ số, chẳng hạn,
+            số 100 sẽ được đưa lên trước số 25 (bởi vì số 1 đứng trước số 2 trong bảng chữ cái).
+            Trong trường hợp này, chúng ta cung cấp cho hàm sort() một hàm so sánh, để nó thực hiện đúng chức năng của mình. */
+
+
+        let points = [40, 100, 1, 5, 25, 10]
+        points.sort(function (a, b) {
+            return a - b
+        }) // [ 1, 5, 10, 25, 40, 100 ]
+
+        points.sort(function (a, b) {
+            return b - a
+        }) // [ 100, 40, 25, 10, 5, 1 ]
+    </script>
+</body>
+
+</html>
