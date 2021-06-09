@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen chu thuong thanh chu in hoa va nguoc lai</title>
+</head>
+<!-- Viết một chương trình nhập vào một chuỗi và chuyển các ký tự 
+    chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa. 
+    Ví dụ: nếu bạn nhập vào chuỗi 'The Quick Brown Fox' kết quả 
+    của chương trình là 'tHE qUICK bROWN fOX'. -->
+<body>
+    <script>
+        let str = prompt("Nhap vao chuoi can thay doi: ");
+        let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let result = [];
+
+        for (let i = 0; i < str.length; i++) {
+            if (UPPER.indexOf(str[i]) !== -1) {
+                result.push(str[i].toLocaleLowerCase());
+            } else if (LOWER.indexOf(str[i]) !== -1) {
+                result.push(str[i].toUpperCase());
+            } else {
+                result.push(str[i]);
+            }
+        }
+        console.log(result.join(''));
+    </script>
+</body>
+
+</html>
