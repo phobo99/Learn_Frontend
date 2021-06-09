@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu dien</title>
+</head>
+
+<body>
+    <script>
+        let english = ["hello", "name", "school", "game", "ready"];
+        let tiengviet = ["xin chào", "tên", "trường học", "trò chơi", "sẵn sàng"];
+        let value = prompt("Enter value find: ");
+        let position;
+        for (let i = 0; i < english.length; i++) {
+            if (english[i] == value) {
+                position = i;
+                break;
+            } else {
+                position = -1;
+            }
+        }
+        if (position != 1) {
+            let x = tiengviet[position];
+            alert(x);
+        } else {
+            alert("Not found!");
+        }
+    </script>
+</body>
+
+</html>
