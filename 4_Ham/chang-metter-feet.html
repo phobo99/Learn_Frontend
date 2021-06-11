@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi feet và metter</title>
+</head>
+
+<body>
+    <script>
+        let m = parseInt(prompt("nhap vao so metter: "));
+        let n = parseInt(prompt("nhap vao so feet"));
+        chuyendoi(m, n);
+
+        function chuyendoi(meter, feet) {
+            let Mter = 0.305 * feet;
+            let Feet = 3.279 * meter;
+            document.write(m + " feet =" + Mter + "meeter " + "<br/>");
+            document.write(n + " meet =" + Feet + " feet");
+        }
+
+    </script>
+</body>
+
+</html>
