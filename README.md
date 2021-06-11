@@ -1,1 +1,2 @@
-# Learn_Frontend - Viết linh tinh thôi
+# Learn_Frontend - Zero to Hero
+Fighting!!!
