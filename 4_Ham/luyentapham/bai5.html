@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai 5</title>
+</head>
+
+<body>
+    <script>
+        function hienthi(ten) {
+            let n = '';
+            let Arr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+            let Arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+            for (let i = 0; i < Arr1.length; i++) {
+                if (Arr1[i] === ten) {
+                    n = Arr2[i];
+                    break;
+                } else {
+                    alert("khong co ngoi sao");
+                }
+            }
+            return n;
+        }
+
+        let ten = prompt("mời bạn nhập vào tên : ");
+        alert(ten + " có sao là : " + hienthi(ten));
+    </script>
+</body>
+
+</html>
