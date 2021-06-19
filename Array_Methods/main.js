@@ -12,7 +12,6 @@ Array.prototype.forEach0 = function (callback) {
 //every
 Array.prototype.every0 = function (callback) {
     if (typeof callback === 'function') {
-        var tg = 0
         for (var i = 0; i < this.length; i++) {
             var o = callback(this[i], i)
             if (o === true) continue
@@ -20,13 +19,15 @@ Array.prototype.every0 = function (callback) {
         }
         return true
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
 }
 
 //some
 Array.prototype.some0 = function (callback) {
     if (typeof callback === 'function') {
-        var tg = 0
         for (var i = 0; i < this.length; i++) {
             var o = callback(this[i], i)
             if (o === false) continue
@@ -34,7 +35,10 @@ Array.prototype.some0 = function (callback) {
         }
         return false
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
 }
 
 //find
@@ -47,7 +51,10 @@ Array.prototype.find0 = function (callback) {
             }
         }
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
 }
 
 //filter
@@ -60,20 +67,27 @@ Array.prototype.filter0 = function (callback) {
         }
         return array
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
 }
 
 //map
 Array.prototype.map0 = function (callback) {
     if (typeof callback === 'function') {
         var array = []
-        for (var i = 0; i < this.length; i++) {
+        arrayLength = this.length
+        for (var i = 0; i < arrayLength; i++) {
             var o = callback(this[i], i)
             array.push(o)
         }
         return array
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
 }
 
 //reduce
@@ -106,5 +120,9 @@ Array.prototype.reduce0 = function (callback, accumulator) {
             return currentValue
         }
     }
-    else console.log('day khong phai funciton hay nhap lai!')
+    else {
+        return undefined
+        //console.log('day khong phai funciton hay nhap lai!')
+    }
+
 }
