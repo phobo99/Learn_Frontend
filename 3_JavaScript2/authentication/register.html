@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .main {
+            background-color: aqua;
+            padding: 30px;
+            height: 100vh;;
+        }
+        .form {
+            width: 40%;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #444;
+        }
+        .form_group {
+            display: flex;
+            margin-bottom: 30px;
+            justify-content: start;
+            align-content: center;
+            position: relative;
+        }
+        .form_group label {
+            font-size: 20px;
+            width: 20%;
+        }
+        .form_group input {
+            outline: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid;
+            width: 80%;
+        }
+        .form_group .message {
+            position: absolute;
+            top: 100%;
+            left: 20%;
+            color: rgb(199, 43, 43);
+        }
+        .btn-signup {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 7px;
+            border-radius: 20px;
+            background-color: aqua;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.5s linear;
+        }
+        .btn-signup:hover {
+            background-color: rgb(37, 163, 163);
+        }
+        a {
+            text-decoration: none;
+            color: rgb(128, 121, 121);
+        }
+        .message {
+            color: rgb(192, 59, 59);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <h2>Đăng kí</h2>
+            <div class="form_group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name">
+                <p class="message message_name"></p>
+            </div>
+            <div class="form_group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Your email">
+                <p class="message message_email"></p>
+            </div>
+            <div class="form_group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Your password">
+                <p class="message message_pass"></p>
+            </div>
+            <button class="btn btn-signup">Đăng kí</button>
+            <p>Bạn đã có tài khoản? Bấm vào đây để <a href="login.html">Đăng nhập</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        const name = document.querySelector('#name')
+        const password = document.querySelector('#password')
+        const email = document.querySelector('#email')
+        const signupBtn = document.querySelector('.btn-signup')
+        const errorName = document.querySelector('.message_name')
+        const errorEmail = document.querySelector('.message_email')
+        const errorPassword = document.querySelector('.message_pass') 
+        let token = localStorage.getItem('token')
+        if ( token ) { setTimeout(() => {location.href = 'home.html'} , 1000) }
+        function register() {
+            const registerApi = 'https://f8team.dev/api/auth/chat-register'
+            const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json',
+                redirect: 'follow'
+            },
+            body: JSON.stringify({
+                name: name.value,
+                email: email.value,
+                password: password.value
+            })
+            }
+            fetch(registerApi, options)
+            .then(  async res => {
+                const result = await res.json()
+                if ( res.ok ) {
+                    return result
+                }
+                if (res.status === 422 || res.status === 409) {
+                    throw result
+                }
+            })
+            .then(result => {
+                localStorage.setItem('token' , result.meta.token);
+                location.href = 'home.html'
+                localStorage.setItem('id' , result.data.id)
+                let token = localStorage.getItem('token')
+                if ( token ) { location.href = 'home.html' }
+            })
+            .catch(error => {
+                const messageError = error.errors 
+                const messageErrorConflict = error.error 
+                if(messageError) {
+                    let messageErrName = messageError.name
+                    let messageErrEmail = messageError.email
+                    let messageErrPassword = messageError.password
+    
+                    !!messageErrName ? errorName.innerHTML = messageErrName.join() : errorName.innerHTML = ''
+                    !!messageErrEmail ? errorEmail.innerHTML = messageErrEmail.join() : errorEmail.innerHTML = ''
+                    !!messageErrPassword ? errorPassword.innerHTML = messageErrPassword.join() : errorPassword.innerHTML = ''
+                }
+                if(messageErrorConflict) {
+                    errorEmail.innerHTML = 'Email already exists, please enter another email'
+                }
+                
+            })
+        }
+        signupBtn.onclick = () => register()
+    </script>
+</body>
+</html>

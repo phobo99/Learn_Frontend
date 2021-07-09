@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .main {
+            background-color: aqua;
+            padding: 30px;
+            height: 100vh;;
+        }
+        .form {
+            width: 40%;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #444;
+        }
+        .form_group {
+            display: flex;
+            margin-bottom: 30px;
+            justify-content: start;
+            align-content: center;
+            position: relative;
+        }
+        .form_group label {
+            font-size: 20px;
+            width: 20%;
+        }
+        .form_group input {
+            outline: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid;
+            width: 80%;
+        }
+        .form_group .message {
+            position: absolute;
+            top: 100%;
+            left: 20%;
+            color: rgb(199, 43, 43);
+        }
+        .btn {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 7px;
+            border-radius: 20px;
+            background-color: aqua;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.5s linear;
+        }
+        .btn:hover {
+            background-color: rgb(37, 163, 163);
+        }
+        a {
+            text-decoration: none;
+            color: rgb(128, 121, 121);
+        }
+        .message_unavailable,
+        .message {
+            color: rgb(192, 59, 59);
+        }
+        .message_unavailable {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <h2>Đăng nhập</h2>
+            <div class="form_group">
+                <label for="email">Email</label>
+                <input type="text" id="email">
+                <p class="message message_email"></p>
+            </div>
+            <div class="form_group">
+                <label for="password">Password</label>
+                <input type="password" id="password">
+                <p class="message message_password"></p>
+            </div>
+            <p class="message_unavailable"></p>
+            <button class="btn btn-login">Đăng nhập</button>
+            <p>Bạn chưa có tài khoản? Bấm vào đây để <a href="register.html">Đăng Ký</a></p>
+        </div>
+        
+    </div>
+    <script>
+        const loginApi = 'https://f8team.dev/api/auth/chat-login'
+        const email = document.querySelector('#email')
+        const password = document.querySelector('#password')
+        const loginBtn = document.querySelector('.btn-login')
+        const errorEmail = document.querySelector('.message_email')
+        const errorPassword = document.querySelector('.message_password')
+        const errorUnvaliable = document.querySelector('.message_unavailable')
+        let token = localStorage.getItem('token')
+        if ( token ) { setTimeout(() => {location.href = 'home.html'} , 1000) }
+        function login() {
+            const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json',
+                redirect: 'follow'
+            },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value
+            })
+            }
+            fetch(loginApi, options)
+            .then( async res => {
+                const result = await res.json()
+                if(res.ok) { return result }
+                throw result 
+            })
+            .then(result => {
+                console.log(result)
+                localStorage.setItem('token' , result.meta.token)
+                localStorage.setItem('id' , result.data.id)
+                location.href = 'home.html'
+            })
+            .catch(error => {
+               const messageError = error.errors
+               const messageErrorUnauthorized = error.error 
+               if(messageError) {
+                   let messageErrEmail = messageError.email
+                   let messageErrPassword = messageError.password
+        
+                   !!messageErrPassword ? errorPassword.innerHTML = messageErrPassword.join() : errorPassword.innerHTML = ''
+                   !!messageErrEmail ? errorEmail.innerHTML = messageErrEmail.join() : errorEmail.innerHTML = ''
+               }else if(messageErrorUnauthorized) {
+                    errorUnvaliable.innerHTML = 'Email or password is incorrect'
+               }
+            })
+        }
+        loginBtn.onclick = () => login()
+    </script>
+</body>
+</html>

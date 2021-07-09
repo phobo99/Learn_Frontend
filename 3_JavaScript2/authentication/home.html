@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            background-color: aqua;
+            padding: 30px;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+        }
+
+        .form {
+            width: 40%;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #444;
+        }
+
+        .form_group {
+            display: flex;
+            margin-bottom: 30px;
+            justify-content: start;
+            align-content: center;
+        }
+
+        .form_group label {
+            font-size: 20px;
+            width: 15%;
+        }
+
+        .form_group .message {
+            font-size: 20px;
+        }
+
+        .btn-logout {
+            outline: none;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            background-color: rgb(209, 36, 30);
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.5s linear;
+            color: #fff;
+        }
+
+        .btn-logout:hover {
+            background-color: rgb(148, 44, 12);
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        .chat {
+            width: 40%;
+            height: auto;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .chat__title {
+            text-align: center;
+            color: rgb(52, 90, 214);
+
+            margin: 10px;
+        }
+
+        .chat__list {
+            list-style: none;
+            padding-top: 10px;
+            height: 350px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgb(52, 90, 214);
+            border-top: 1px solid rgb(52, 90, 214);
+            scroll-behavior: smooth;
+        }
+
+        .chat__item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: end;
+            flex-direction: row;
+            align-items: start;
+        }
+
+        .chat__item.active {
+            flex-direction: row-reverse;
+        }
+
+        .chat__name {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background-color: rgb(131, 131, 131);
+            color: #fff;
+            font-size: 10px;
+            margin-bottom: 2px;
+            margin-right: 3px;
+        }
+
+        .chat__item.active .chat__name {
+            margin-left: 3px;
+        }
+
+        .chat__content {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background-color: rgb(112, 146, 221);
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .chat__input {
+            outline: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: 1px solid rgb(102, 124, 197);
+            width: 85%;
+        }
+
+        .chat__send {
+            outline: none;
+            border: none;
+            padding: 5px 10px;
+            background-color: rgb(76, 201, 218);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 15px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="form">
+            <h2>Thông tin</h2>
+            <div class="form_group">
+                <label for="name">Name :</label>
+                <p class="message message_name"></p>
+            </div>
+            <div class="form_group">
+                <label for="email">Email :</label>
+                <p class="message message_email"></p>
+            </div>
+            <button class='btn-logout'>Đăng Xuất</button>
+            <p class="message_unavailable"></p>
+        </div>
+        <div class="chat">
+            <h2 class="chat__title">Zoom Chat</h2>
+            <ul class="chat__list">
+            </ul>
+            <input type="text" class="chat__input">
+            <button class="chat__send">Send</button>
+        </div>
+    </div>
+    <script>
+        const logoutBtn = document.querySelector('.btn-logout')
+        const name = document.querySelector('.message_name')
+        const email = document.querySelector('.message_email')
+        const message = document.querySelector('.message_unavailable')
+        const inputChat = document.querySelector('.chat__input')
+        const btnSend = document.querySelector('.chat__send')
+        const list = document.querySelector('.chat__list')
+        const id = localStorage.getItem('id')
+        function sendMessage() {
+            btnSend.onclick = () => {
+                const headers = new Headers();
+                headers.append("Content-Type", "application/json");
+                const options = {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify({
+                        chat_user_id: id,
+                        body: inputChat.value
+                    })
+                };
+                fetch('https://f8team.dev/api/chat-messages', options)
+                    .then(response => response.json())
+                    .then(result => {
+                        console.log(result)
+                        inputChat.value = ''
+                    })
+                    .catch(error => {
+                        console.log('error', error)
+                    });
+            }
+        }
+        sendMessage()
+        function showInfo() {
+            const token = localStorage.getItem('token')
+            const showApi = 'https://f8team.dev/api/auth/chat-me'
+            const myHeaders = new Headers();
+            myHeaders.append("accept", "application/json");
+            myHeaders.append('content-type', 'application/json');
+            myHeaders.append("Authorization", `Bearer ${token}`);
+            options = {
+                method: 'GET',
+                headers: myHeaders
+            }
+            fetch(showApi, options)
+                .then(async res => {
+                    const result = await res.json()
+                    if (res.ok) return result
+                    throw result
+                })
+                .then(result => {
+                    const data = result.data
+                    name.innerHTML = data.name
+                    email.innerHTML = data.email
+                    logoutBtn.onclick = () => logout()
+                })
+                .catch(err => {
+                    message.innerHTML = `Bạn cần phải đăng nhập trước .Vui lòng bấm vào đây <a href="login.html">Đăng nhập</a>`
+                })
+        }
+        showInfo()
+        function logout() {
+            var myHeaders = new Headers();
+            myHeaders.append("Accept", "application/json");
+            myHeaders.append("Content-Type", "application/json");
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+            };
+            fetch("https://f8team.dev/api/auth/chat-logout", requestOptions)
+                .then(async res => {
+                    const result = await res.json()
+                    if (res.ok) return result
+                })
+                .then(result => {
+                    localStorage.removeItem('token')
+                    localStorage.removeItem('id')
+                    location.href = 'login.html'
+                })
+        }
+
+        function getMessage() {
+
+            fetch('https://f8team.dev/api/chat-messages')
+                .then(async res => {
+                    const result = await res.json()
+                    if (res.ok) return result
+                    throw result
+                })
+                .then(result => {
+                    const data = result.data
+                    const htmls = data.map(message => {
+                        return `
+                    <li class="chat__item ${id == message.chat_user_id ? 'active' : ''}">
+                        <p class="chat__name">${message.user.name}</p>
+                        <br />
+                        <p class="chat__content">${message.body}</p>
+                    </li>
+                    `
+                    }).join('')
+                    list.innerHTML = htmls
+                })
+                .catch(error => console.log(error))
+        }
+        setInterval(() => getMessage(), 1000)
+    </script>
+</body>
+
+</html>
+
+cat C:\Users\Admin/.ssh/id_rsa.pub | clip
