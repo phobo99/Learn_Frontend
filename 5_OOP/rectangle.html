@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1368px" style="border: 1px solid #d3d3d3;"></canvas>
+    <script>
+        // Ham nhap chieu dai va chieu rong
+        function Ractangle(chieuRong, chieuDai) {
+            this.chieuRong = chieuRong;
+            this.chieuDai = chieuDai;
+            this.area = area;
+            this.perimeter = perimeter;
+            this.CreatRectangle = CreatRectangle;
+        }
+        // Tinh dien tich
+        function area() {
+            return this.chieuRong * this.chieuDai;
+        }
+        // Tinh chu vi
+        function perimeter() {
+            return (this.chieuRong + this.chieuDai) * 2;
+        }
+        // Ve hinh chu nhat da nhap vao
+        function CreatRectangle() {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(100, 200, this.chieuRong, this.chieuDai);
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        let width = parseFloat(prompt("Nhap vao chieu dai"))
+        let height = parseFloat(prompt("Nhap vao chieu rong"))
+        let obj1 = new Ractangle(width, height);
+        obj1.CreatRectangle();
+        alert("Diện tích : " + obj1.area() + " - Chu vi : " + obj1.perimeter());
+    </script>
+</body>
+
+</html>
