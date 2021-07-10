@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam và Eva</title>
+</head>
+
+<body>
+    <script>
+        function Apple(weight) {
+            this.weight = weight;
+            this.decrea = function () {
+                this.weight--;
+                if (this.weight === 0) {
+                    document.write("Het me tao roi");
+                }
+            }
+            this.isEmpty = function () {           //check táo
+                if (this.weight === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        var isMale = true;
+        function Human(name, gender) {
+            this.name = name;
+            this.gender = gender;
+
+
+
+            this.say = function () {                //kiểm tra xem táo còn hay hết
+                if (apple.isEmpty() === true) {
+                    alert("con Tao dau")
+
+
+
+                } else {
+                    // su dung male phan biet gioi tinh neu nam ăn táo ngược lại eva ăn táo
+                    if (this.gender === "Male") {
+                        document.write(this.name + ": Lam mieng nua di" + "<br/>");
+                        apple.decrea();
+                        isMale = false;
+                        console.log(apple.weight);
+                    } else {
+                        document.write(this.name + ": Anh cung lam mieng nua di" + "<br/>");
+                        apple.decrea();
+                        isMale = true;
+                        console.log(apple.weight);
+                    }
+                }
+            }
+        }
+
+
+        let apple = new Apple(10);
+        let adam = new Human("Adam", "Male", 70);
+        let eva = new Human("Eva", "Female", 50);
+        do {
+            (isMale) ? adam.say() : eva.say();
+        } while (apple.weight > 0)
+    </script>
+</body>
+
+</html>
