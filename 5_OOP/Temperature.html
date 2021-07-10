@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+</head>
+
+<body>
+    <script>
+        function NhietDo(C) {
+            this.C = C;
+            this.convertTemCToTemF = convertTemCToTemF;
+            this.convertTemCToTemK = convertTemCToTemK;
+        }
+        function convertTemCToTemF() {
+            return (1.8 * this.C + 32);
+        }
+        function convertTemCToTemK() {
+            return (this.C + 273.15);
+        }
+        let C = parseInt(prompt("nhap vao do C: "));
+        let obj1 = new NhietDo(C);
+        document.write(C + " độ C = " + obj1.convertTemCToTemF() + " độ F = " + obj1.convertTemCToTemK() + " độ K");
+
+    </script>
+</body>
+
+</html>
