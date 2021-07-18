@@ -1,0 +1,128 @@
+:root{
+    --primary-color:rgb(245,63,45);
+    --white-color:#fff ;
+    --black-color:#000;
+    --text-color:#333;
+    --hearder-height: 120px;
+    --navbar-height: 30px;
+    --hearder-height-search: calc(var(--hearder-height) - var(--navbar-height));
+    --hearder-sort-bar-height: 46px;
+}
+
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}   
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid__full-width{
+    width: 100%;
+}
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+    margin: -5px;
+    
+}
+/* test */
+.grid__colunm-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+.grid__colunm-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+.grid__colunm-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: calc(100% - 16.6667%);
+}
+@keyframes growth{
+    from{
+       transform: scale(var(--growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+/* button-style */
+.btn{
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn--nomal:hover{
+    background-color: rgba(0,0,0,0.08);
+}
+.btn.btn--primary{
+    background-color:var(--primary-color);
+    color: var(--white-color);
+}
+.btn--primary:hover{
+    background-color: rgb(241, 90, 80);
+}
+
+.select-input{
+    height: 34px;
+    background-color: var(--white-color);
+    padding: 0 12px;
+    border-radius: 2px;
+    min-width: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+}
+.pagination-item{
+    padding: 0 10px;
+
+}
+.pagination-item-link{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+}
+.pagination-item-active .pagination-item-link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+}
+.pagination-item-active .pagination-item-link:hover{
+    background-color: rgb(241, 90, 80);
+}
+

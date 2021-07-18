@@ -1,0 +1,252 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.main {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.banner {
+    margin-top:3rem;
+}
+.banner_top{
+    width: 100%;
+}
+.banner_top img{
+    width: 100%;
+    object-fit: cover;
+}
+.banner_extra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner_extra img{
+    width: 50%;
+    object-fit: cover;
+}
+.title{
+    text-align: center;
+    margin: 2rem 0 ;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #444;
+}
+.product_list {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.product_item {
+    width: 100%;
+    overflow: hidden;
+    height:230px;
+}
+.product_item img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.content {
+    margin: 3rem 10rem ;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.social_title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.social_contact input {
+    width: 37rem;
+    margin-bottom: 5px;
+    padding: 0.5rem;
+}
+.social_contact button {
+    outline: none;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 7px;
+}
+.social_icon a{
+    font-size:2.5rem;
+    color: #333;
+    margin-right: 2rem;
+}
+.customer_title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.customer_item {
+    font-size: 1.4rem;
+}
+.footer {
+    margin: 3rem 0 ;
+}
+.footer_list {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.footer_item {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    position: relative;
+}
+.footer_item:not(:last-child):after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background-color: #444;
+    top: 20%;
+    right: 0;
+}
+@media only screen and (max-width: 600px) {
+    .banner_extra{
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner_extra img{
+        width: 100%;
+        object-fit: cover;
+        height: 200px;
+    }
+    .title{
+        text-align: center;
+        margin: 1rem 0 ;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #444;
+    }
+    .product_list {
+        display:flex;
+        align-items: center;
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+    .product_item {
+        width: 109px;
+        overflow: hidden;
+        height:109px;
+    }
+    .content {
+        display: block;
+        margin: 2rem 0;
+    }
+    .social_title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+    .social_contact input {
+        width: 25rem;
+        margin-bottom: 5px;
+        padding: 0.5rem;
+    }
+    .social_contact button {
+        outline: none;
+        border: none;
+        background: #000;
+        color: #fff;
+        padding: 7px 15px;
+    }
+    .footer_item {
+        font-size: 1rem;
+        padding: 0 1rem;
+        position: relative;
+    }
+    .footer_item:not(:last-child):after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 12px;
+        background-color: #444;
+        top: 20%;
+        right: 0;
+    }
+}
